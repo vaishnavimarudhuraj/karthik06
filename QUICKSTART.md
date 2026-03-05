@@ -81,6 +81,38 @@ Use this test card for checkout:
 - [ ] Frontend running on port 5173
 - [ ] Can access http://localhost:5173
 
+## 🚀 Deployment Steps
+
+You must complete these steps manually on your machine before the site is live:
+
+1. **Push the repository**
+   ```powershell
+   cd C:\Users\Dell\Desktop\HERBAL
+   git push -u origin main
+   ```
+   Authenticate with GitHub using your credentials or a personal access token.
+
+2. **Deploy the backend** to a hosting service (Heroku, Railway, etc.) and note the public URL.
+
+3. **Install & login to Vercel**
+   ```powershell
+   npm install -g vercel
+   vercel login
+   ```
+
+4. **Link and deploy the frontend**
+   ```powershell
+   cd frontend
+   vercel link      # select account/project
+   vercel env add VITE_API_URL production https://your-backend-url/api
+   vercel env add VITE_STRIPE_PUBLIC_KEY production pk_live_...
+   vercel --prod
+   ```
+
+5. Verify the site is live at `https://<your-vercel-project>.vercel.app`.
+
+Once done, future pushes to **main** auto-trigger deployments.
+
 ## 🎯 What to Try First
 
 1. **Browse Products**
